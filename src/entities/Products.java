@@ -28,12 +28,19 @@ public class Products {
         this.price = price;
     }
 
+    public static void staticPriceUpdate(Products prod){
+            prod.setPrice(prod.getPrice() * 1.1);
+        }
+    public  void nonStaticPriceUpdate(){
+        setPrice(getPrice() * 1.1);
+    }
+
+
     @Override
     public String toString() {
-        return "Products{" +
-                "name?'" + name + '\'' +
-                ", price:" + price +
-                '}';
+        return "{" + "name: " + name +
+                ", price:" + String.format("%.2f",price) +
+                "}";
     }
 
     @Override
