@@ -1,6 +1,7 @@
 package application;
 
 import entities.Products;
+import util.PriceUpdate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,9 @@ public class Program {
         list.add(new Products("Tablet", 350.0));
         list.add(new Products("HD Case", 80.90));
 
-        list.forEach();
+        list.forEach(new PriceUpdate());
+
+        list.forEach(System.out::println);
 
     }
 }
