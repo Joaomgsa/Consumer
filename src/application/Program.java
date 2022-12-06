@@ -6,6 +6,7 @@ import util.PriceUpdate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.function.Consumer;
 
 public class Program {
     public static void main(String[] args) {
@@ -18,7 +19,13 @@ public class Program {
         list.add(new Products("Tablet", 350.0));
         list.add(new Products("HD Case", 80.90));
 
-        list.forEach(Products::nonStaticPriceUpdate);
+        double factor = 1.1;
+
+        Consumer<Products> cons = products -> {
+            products.setPrice(products.getPrice()* factor);
+        };
+
+        list.forEach(cons);
 
         list.forEach(System.out::println);
 
